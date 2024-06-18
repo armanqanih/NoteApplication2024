@@ -8,7 +8,7 @@ dependencyResolutionManagement {
 
     }
 }
-rootProject.name = "ChatAppArm"
+rootProject.name = "Gradle Is Ready"
 include ':app'
 include ':benchmark'
 include ':presentation'
