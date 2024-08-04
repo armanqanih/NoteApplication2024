@@ -21,7 +21,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.navArgument
 import com.google.accompanist.pager.ExperimentalPagerApi
-import org.lotka.xenonx.presentation.screen.edit_note.EditNoteScreen
+import org.lotka.xenonx.presentation.screen.edit_note.AddEditNoteScreen
+
 import org.lotka.xenonx.presentation.screen.note.NotesScreen
 
 import org.lotka.xenonx.presentation.ui.navigation.ScreensNavigation
@@ -70,25 +71,26 @@ fun HomeApp(
                 }
                 composable(
                     route = ScreensNavigation.EditNoteScreen.route +
-                            "?noteId = {noteId} & noteColor{noteColor}" ,
+                            "?noteId={noteId}&noteColor={noteColor}",
                     arguments = listOf(
-                        navArgument(name = "noteId" ){
+                        navArgument(
+                            name = "noteId"
+                        ) {
                             type = NavType.IntType
                             defaultValue = -1
                         },
-                        navArgument(name = "noteColor" ){
+                        navArgument(
+                            name = "noteColor"
+                        ) {
                             type = NavType.IntType
                             defaultValue = -1
-                        }
+                        },
                     )
-
                 ) {
-
-                    val color = it.arguments?.getInt("noteColor")?: -1
-
-                    EditNoteScreen(
-                        navController = navController
-                        ,noteColor = color
+                    val color = it.arguments?.getInt("noteColor") ?: -1
+                    AddEditNoteScreen(
+                        navController = navController,
+                        noteColor = color
                     )
 
                 }

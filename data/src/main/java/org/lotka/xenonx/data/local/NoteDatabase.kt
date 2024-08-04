@@ -6,7 +6,8 @@ import org.lotka.xenonx.domain.model.Note
 
 @Database(
     entities = [Note::class],
-    version = 1
+    version = 2,
+    exportSchema = false
 )
 abstract class NoteDatabase: RoomDatabase() {
 

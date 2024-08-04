@@ -4,9 +4,9 @@ import org.lotka.xenonx.domain.model.Note
 import org.lotka.xenonx.domain.util.NoteOrder
 import org.lotka.xenonx.domain.util.OrderType
 
-data class NoteState(
+
+data class NotesState(
     val notes: List<Note> = emptyList(),
     val noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     val isOrderSectionVisible: Boolean = false
-
 )

@@ -1,4 +1,4 @@
-package org.lotka.xenonx.presentation.screen.note.compose
+package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
@@ -21,8 +21,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
-
 import org.lotka.xenonx.domain.model.Note
+
 
 @Composable
 fun NoteItem(
@@ -78,7 +78,7 @@ fun NoteItem(
                 text = note.content,
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSurface,
-                maxLines = 6,
+                maxLines = 10,
                 overflow = TextOverflow.Ellipsis
             )
         }

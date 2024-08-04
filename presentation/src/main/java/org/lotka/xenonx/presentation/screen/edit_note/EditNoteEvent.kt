@@ -1,13 +1,12 @@
-package org.lotka.xenonx.presentation.screen.edit_note
+package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note
 
 import androidx.compose.ui.focus.FocusState
 
-sealed class EditNoteEvent {
-    data class EnterTitle(val value: String) : EditNoteEvent()
-    data class TitleChange(val focusState:FocusState):EditNoteEvent()
-    data class EnterContent(val value: String) : EditNoteEvent()
-    data class ContentChange(val focusState:FocusState):EditNoteEvent()
-    data class ChangeColor(val color: Int) : EditNoteEvent()
-    object SaveNote : EditNoteEvent()
-
+sealed class AddEditNoteEvent{
+    data class EnteredTitle(val value: String): AddEditNoteEvent()
+    data class ChangeTitleFocus(val focusState: FocusState): AddEditNoteEvent()
+    data class EnteredContent(val value: String): AddEditNoteEvent()
+    data class ChangeContentFocus(val focusState: FocusState): AddEditNoteEvent()
+    data class ChangeColor(val color: Int): AddEditNoteEvent()
+    object SaveNote: AddEditNoteEvent()
 }

@@ -1,6 +1,5 @@
 package org.lotka.xenonx.presentation.screen.note
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -9,31 +8,28 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Menu
-
+import androidx.compose.material.icons.filled.Sort
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import org.lotka.xenonx.presentation.screen.note.compose.NoteItem
+import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.notes.components.NoteItem
 
 import kotlinx.coroutines.launch
 
 import org.lotka.xenonx.presentation.screen.note.compose.OrderSection
 import org.lotka.xenonx.presentation.ui.navigation.ScreensNavigation
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @ExperimentalAnimationApi
 @Composable
 fun NotesScreen(
     navController: NavController,
-    viewModel: NoteViewModel = hiltViewModel()
+    viewModel: NotesViewModel = hiltViewModel()
 ) {
-    val state = viewModel.state.collectAsState().value
+    val state = viewModel.state.value
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
@@ -41,7 +37,7 @@ fun NotesScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                navController.navigate(ScreensNavigation.EditNoteScreen.route)
+                    navController.navigate(ScreensNavigation.EditNoteScreen.route)
                 },
                 backgroundColor = MaterialTheme.colors.primary
             ) {
@@ -52,7 +48,7 @@ fun NotesScreen(
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize().padding(it)
                 .padding(16.dp)
         ) {
             Row(
@@ -66,11 +62,11 @@ fun NotesScreen(
                 )
                 IconButton(
                     onClick = {
-                        viewModel.onEvent(NoteEvent.ToggleOrderSection)
+                        viewModel.onEvent(NotesEvent.ToggleOrderSection)
                     },
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Menu,
+                        imageVector = Icons.Default.Sort,
                         contentDescription = "Sort"
                     )
                 }
@@ -86,7 +82,7 @@ fun NotesScreen(
                         .padding(vertical = 16.dp),
                     noteOrder = state.noteOrder,
                     onOrderChange = {
-                        viewModel.onEvent(NoteEvent.Order(it))
+                        viewModel.onEvent(NotesEvent.Order(it))
                     }
                 )
             }
@@ -99,19 +95,19 @@ fun NotesScreen(
                             .fillMaxWidth()
                             .clickable {
                                 navController.navigate(
-                                   ScreensNavigation.EditNoteScreen.route +
-                                    "?noteId=${note.id}&noteColor=${note.color}"
+                                    ScreensNavigation.EditNoteScreen.route +
+                                            "?noteId=${note.id}&noteColor=${note.color}"
                                 )
                             },
                         onDeleteClick = {
-                            viewModel.onEvent(NoteEvent.DeleteNote(note))
+                            viewModel.onEvent(NotesEvent.DeleteNote(note))
                             scope.launch {
                                 val result = scaffoldState.snackbarHostState.showSnackbar(
                                     message = "Note deleted",
                                     actionLabel = "Undo"
                                 )
                                 if(result == SnackbarResult.ActionPerformed) {
-                                    viewModel.onEvent(NoteEvent.CancelDeleter)
+                                    viewModel.onEvent(NotesEvent.RestoreNote)
                                 }
                             }
                         }
