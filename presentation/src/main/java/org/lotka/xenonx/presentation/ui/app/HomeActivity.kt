@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import org.lotka.xenonx.presentation.ui.navigation.HomeScreensNavigation
+
 
 
 
@@ -33,7 +33,8 @@ class HomeActivity : AppCompatActivity() {
                     HomeApp(
                         activity = this@HomeActivity,
                         navController = navController,
-                        onNavigateToRecipeDetailScreen = { navController.navigate(HomeScreensNavigation.single_chat_screen.route) },
+                        onNavigateToRecipeDetailScreen = {
+                            },
                         isDarkTheme = false,
                         onToggleTheme = { },
                         keyboardController = keyboardController,

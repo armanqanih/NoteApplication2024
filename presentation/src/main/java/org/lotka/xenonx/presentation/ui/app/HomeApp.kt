@@ -18,9 +18,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.pager.ExperimentalPagerApi
-import org.lotka.xenonx.presentation.ui.navigation.HomeScreensNavigation
-import org.lotka.xenonx.presentation.ui.navigation.NavigatorScreen
 
+import org.lotka.xenonx.presentation.ui.navigation.ScreensNavigation
 
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -47,7 +46,7 @@ fun HomeApp(
 
         content = { _ ->
             NavHost(navController = navController,
-                startDestination = HomeScreensNavigation.NavigatorRoutScreen.route,
+                startDestination = ScreensNavigation.single_chat_screen .route,
                 enterTransition = {
                     // you can change whatever you want transition
                     EnterTransition.None
@@ -57,26 +56,15 @@ fun HomeApp(
                     ExitTransition.None
                 }) {
                 composable(
-                    route = HomeScreensNavigation.NavigatorRoutScreen.route,
-                ) {
-
-                    NavigatorScreen()
-
-//                  PlpScreen(
-//                      navController = navController,
-//                      onNavigateToRecipeDetailScreen = onNavigateToRecipeDetailScreen,
-//                      isDarkTheme = isDarkTheme,
-//                      onToggleTheme = onToggleTheme,
-//                      viewModel = plpViewModel
-//                  )
-
-                }
-                composable(
-                    route = HomeScreensNavigation.single_chat_screen.route,
+                    route = ScreensNavigation.single_chat_screen .route,
                 ) {
 
 
+
+
+
                 }
+
 
             }
 

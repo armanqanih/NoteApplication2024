@@ -4,6 +4,23 @@ package org.lotka.xenonx.presentation.theme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+
+val DarkGray = Color(0xFF202020)
+val LightBlue = Color(0xFFD7E8DE)
+val RedOrange = Color(0xffffab91)
+val RedPink = Color(0xfff48fb1)
+val BabyBlue = Color(0xff81deea)
+val Violet = Color(0xffcf94da)
+val LightGreen = Color(0xffe7ed9b)
+
+
+
+
+
+
+
+
+
 val Purple200 = Color(0xFFBB86FC)
 val PrimaryLight = Color(0xFF0F45B2)
 val BoeingBlue = Color(0xFF1C4087)
@@ -26,12 +43,12 @@ val TransparentBlack = Color(0xA6000000)
 val StoneGray = Color(0xFFF2F4F7)
 val MiddleGray = Color(0xFF555555)
 val SofteGray = Color(0xFFD0D5DD)
-val DarkGray = Color(0xFF373435)
+
 val Sky = Color(0xFFBAE6FF)
 val BlueGreen = Color(0xFF0FB2B2)
 val CobaltBlue = Color(0xFF1C4087)
 val DarkGreen = Color(0xFF265C5C)
-val LightGreen = Color(0xFFBAEAC2)
+
 val PastelGreen = Color(0xFFECFDF3)
 val Green = Color(0xFF00AE79)
 val MunsellGreen = Color(0xFF027A48)

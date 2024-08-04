@@ -2,7 +2,7 @@ package org.lotka.xenonx.domain
 
 
 
-import org.lotka.xenonx.domain.util.HttpErrors
+
 
 data class ErrorMessage2(
     
