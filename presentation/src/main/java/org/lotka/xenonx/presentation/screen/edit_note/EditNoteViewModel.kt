@@ -1,4 +1,4 @@
-package com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note
+package org.lotka.xenonx.presentation.screen.edit_note
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.plcoding.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note.AddEditNoteEvent
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -15,7 +16,6 @@ import org.lotka.xenonx.domain.model.InvalidNoteException
 import org.lotka.xenonx.domain.model.Note
 import org.lotka.xenonx.domain.usecase.AllNotesUseCases
 import org.lotka.xenonx.presentation.composables.NoteColor
-import org.lotka.xenonx.presentation.screen.edit_note.NoteTextFieldState
 import javax.inject.Inject
 
 @HiltViewModel
@@ -114,6 +114,8 @@ class AddEditNoteViewModel @Inject constructor(
                     }
                 }
             }
+
+            else -> {}
         }
     }
 
