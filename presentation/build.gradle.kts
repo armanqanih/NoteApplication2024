@@ -77,6 +77,10 @@ dependencies {
     implementation ("androidx.core:core-splashscreen:1.0.1")
 
 
+    // Extended Icons
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
+
     // ConstraintLayout
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
